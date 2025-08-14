@@ -1,0 +1,11 @@
+<odoo>
+    <record id="snooker_reservation_scheduler" model="ir.cron">
+        <field name="name">Auto-Update Future Bookings</field>
+        <field name="model_id" ref="model_snooker_reservation"/>
+        <field name="state">code</field>
+        <field name="code">model.check_future_bookings()</field>
+        <field name="interval_type">minutes</field>
+        <field name="interval_number">10</field>
+        <field name="active" eval="True"/>
+    </record>
+</odoo>
