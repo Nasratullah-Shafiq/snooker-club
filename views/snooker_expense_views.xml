@@ -1,0 +1,50 @@
+<odoo>
+    <record id="view_snooker_expense_form" model="ir.ui.view">
+        <field name="name">snooker.expense.form</field>
+        <field name="model">snooker.expense</field>
+        <field name="arch" type="xml">
+            <form string="Expense Management">
+                <header>
+                    <button name="action_register_expense_payment" string="Register Payment"
+                            type="object" class="oe_highlight"/>
+
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="category"/>
+                            <field name="amount"/>
+                            <field name="payment_source"/>
+                            <field name="date"/>
+                            <field name="snooker_revenue_id"
+                                   invisible="context.get('default_payment_source') != 'snooker_fees'"/>
+                        </group>
+                        <group>
+                            <field name="paid_amount" readonly="1"/>
+                            <field name="remaining_balance" readonly="1"/>
+                            <field name="is_fully_paid" readonly="1"/>
+                            <field name="description"/>
+                        </group>
+                    </group>
+                </sheet>
+                 <div class="oe_chatter">
+                <field name="message_ids" widget="mail_thread"/>
+            </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_snooker_expense_tree" model="ir.ui.view">
+        <field name="name">snooker.expense.tree</field>
+        <field name="model">snooker.expense</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="category"/>
+                <field name="amount"/>
+                <field name="date"/>
+            </tree>
+        </field>
+    </record>
+</odoo>
