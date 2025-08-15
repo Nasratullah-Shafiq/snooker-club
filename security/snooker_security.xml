@@ -1,0 +1,35 @@
+<odoo>
+    <record id="snooker_payment_rule" model="ir.rule">
+        <field name="name">Restrict Payment Wizard</field>
+        <field name="model_id" ref="model_snooker_payment_wizard"/>
+        <field name="global" eval="True"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="False"/>
+        <field name="domain_force">[('reservation_id.customer_id', '=', user.partner_id.id)]</field>
+    </record>
+
+    <record id="snooker_payment_wizard_access" model="ir.model.access">
+        <field name="name">snooker.payment.wizard access</field>
+        <field name="model_id" ref="model_snooker_payment_wizard"/>
+        <field name="group_id" ref="base.group_user"/> <!-- Adjust the group here -->
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_create" eval="1"/>
+        <field name="perm_unlink" eval="1"/>
+    </record>
+
+
+    <record id="snooker_expense_rule" model="ir.rule">
+        <field name="name">Restrict Expense Management</field>
+        <field name="model_id" ref="model_snooker_expense"/>
+        <field name="global" eval="True"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+        <field name="domain_force">[]</field>
+    </record>
+</odoo>
+
