@@ -1,0 +1,108 @@
+<odoo>
+    <menuitem id="snooker_main_menu" name="Snooker Club" sequence="1"/>
+
+    <menuitem id="snooker_reservation_menu" name="Reservations" parent="snooker_main_menu"/>
+    <menuitem id="snooker_table_menu" name="Tables" parent="snooker_main_menu"/>
+
+    <record id="snooker_reservation_action" model="ir.actions.act_window">
+        <field name="name">Reservations</field>
+        <field name="res_model">snooker.reservation</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="snooker_table_action" model="ir.actions.act_window">
+        <field name="name">Tables</field>
+        <field name="res_model">snooker.table</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="snooker_reservation_menu_action" name="Manage Reservations" parent="snooker_reservation_menu" action="snooker_reservation_action"/>
+    <menuitem id="snooker_table_menu_action" name="Manage Tables" parent="snooker_table_menu" action="snooker_table_action"/>
+
+    <menuitem id="snooker_expense_menu" name="Expenses" parent="snooker_main_menu"/>
+
+    <record id="snooker_expense_action" model="ir.actions.act_window">
+        <field name="name">Manage Expenses</field>
+        <field name="res_model">snooker.expense</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="snooker_expense_menu_action" name="Manage Expenses" parent="snooker_expense_menu" action="snooker_expense_action"/>
+
+    <!-- Define Financial Reports Action FIRST -->
+    <record id="snooker_financial_report_action" model="ir.actions.act_window">
+        <field name="name">Financial Reports</field>
+        <field name="res_model">snooker.financial.report</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Then reference it in the menu -->
+    <menuitem id="snooker_financial_report_main_menu" name="Financial Reports"
+              parent="snooker_main_menu"/>
+
+    <menuitem id="snooker_financial_report_menu"
+              name="Monthly Reports"
+              parent="snooker_financial_report_main_menu"
+              action="snooker_financial_report_action"/>
+</odoo>
+
+
+
+
+<!--<odoo>-->
+<!--    <menuitem id="snooker_main_menu" name="Snooker Club" sequence="1"/>-->
+
+<!--    <menuitem id="snooker_reservation_menu" name="Reservations" parent="snooker_main_menu"/>-->
+<!--    <menuitem id="snooker_table_menu" name="Tables" parent="snooker_main_menu"/>-->
+
+<!--    <record id="snooker_reservation_action" model="ir.actions.act_window">-->
+<!--        <field name="name">Reservations</field>-->
+<!--        <field name="res_model">snooker.reservation</field>-->
+<!--        <field name="view_mode">tree,form</field>-->
+<!--    </record>-->
+
+<!--    <record id="snooker_table_action" model="ir.actions.act_window">-->
+<!--        <field name="name">Tables</field>-->
+<!--        <field name="res_model">snooker.table</field>-->
+<!--        <field name="view_mode">tree,form</field>-->
+<!--    </record>-->
+
+<!--    <menuitem id="snooker_reservation_menu_action" name="Manage Reservations" parent="snooker_reservation_menu" action="snooker_reservation_action"/>-->
+<!--    <menuitem id="snooker_table_menu_action" name="Manage Tables" parent="snooker_table_menu" action="snooker_table_action"/>-->
+
+
+<!--    <menuitem id="snooker_expense_menu" name="Expenses" parent="snooker_main_menu"/>-->
+
+<!--    <record id="snooker_expense_action" model="ir.actions.act_window">-->
+<!--        <field name="name">Manage Expenses</field>-->
+<!--        <field name="res_model">snooker.expense</field>-->
+<!--        <field name="view_mode">tree,form</field>-->
+<!--    </record>-->
+
+<!--    <menuitem id="snooker_expense_menu_action" name="Manage Expenses" parent="snooker_expense_menu" action="snooker_expense_action"/>-->
+
+<!--    <menuitem id="snooker_expense_menu" name="Expenses" parent="snooker_main_menu"/>-->
+
+<!--    <record id="snooker_expense_action" model="ir.actions.act_window">-->
+<!--        <field name="name">Manage Expenses</field>-->
+<!--        <field name="res_model">snooker.expense</field>-->
+<!--        <field name="view_mode">tree,form</field>-->
+<!--    </record>-->
+
+<!--    <menuitem id="snooker_expense_menu_action" name="Manage Expenses" parent="snooker_expense_menu" action="snooker_expense_action"/>-->
+
+<!--    <menuitem id="snooker_financial_report_main_menu" name="Financial Reports"-->
+<!--              parent="snooker_main_menu"/>-->
+
+<!--    <menuitem id="snooker_financial_report_menu"-->
+<!--              name="Monthly Reports"-->
+<!--              parent="snooker_financial_report_main_menu"-->
+<!--              action="snooker_financial_report_action"/>-->
+
+<!--    <record id="snooker_financial_report_action" model="ir.actions.act_window">-->
+<!--        <field name="name">Financial Reports</field>-->
+<!--        <field name="res_model">snooker.financial.report</field>-->
+<!--        <field name="view_mode">tree,form</field>-->
+<!--    </record>-->
+
+<!--</odoo>-->
