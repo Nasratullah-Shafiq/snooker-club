@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_snooker_table,snooker.table,model_snooker_table,base.group_user,1,1,1,1
+access_snooker_reservation,snooker.reservation,model_snooker_reservation,base.group_user,1,1,1,1
+access_snooker_payment_wizard,snooker.payment.wizard,model_snooker_payment_wizard,base.group_user,1,1,1,1
+access_snooker_expense,snooker.expense,model_snooker_expense,base.group_user,1,1,1,1
+access_snooker_expense_payment_wizard,snooker.expense.payment.wizard,model_snooker_expense_payment_wizard,base.group_user,1,1,1,1
+access_snooker_revenue,snooker.revenue,model_snooker_revenue,base.group_user,1,1,1,1
+access_snooker_financial_report,snooker.financial.report,model_snooker_financial_report,base.group_user,1,1,1,0
