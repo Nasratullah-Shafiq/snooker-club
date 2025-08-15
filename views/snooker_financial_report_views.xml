@@ -1,0 +1,146 @@
+<odoo>
+    <record id="view_snooker_financial_report_tree" model="ir.ui.view">
+        <field name="name">snooker.financial.report.tree</field>
+        <field name="model">snooker.financial.report</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="report_date"/>
+                <field name="total_collected"/>
+                <field name="total_expenses"/>
+                <field name="salary_expense"/>
+                <field name="rent_expense"/>
+                <field name="electricity_expense"/>
+                <field name="maintenance_expense"/>
+                <field name="equipment_expense"/>
+                <field name="net_balance"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_snooker_financial_report_form" model="ir.ui.view">
+        <field name="name">snooker.financial.report.form</field>
+        <field name="model">snooker.financial.report</field>
+        <field name="arch" type="xml">
+            <form string="Snooker Financial Report">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="report_date"/>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="total_collected"/>
+                            <field name="total_expenses"/>
+                            <field name="net_balance"/>
+                        </group>
+                        <group>
+                            <field name="salary_expense"/>
+                            <field name="rent_expense"/>
+                            <field name="electricity_expense"/>
+                            <field name="maintenance_expense"/>
+                            <field name="equipment_expense"/>
+                        </group>
+                    </group>
+                </sheet>
+                 <div class="oe_chatter">
+                <field name="message_ids" widget="mail_thread"/>
+            </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="snooker_financial_report_action" model="ir.actions.act_window">
+        <field name="name">Financial Reports</field>
+        <field name="res_model">snooker.financial.report</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="snooker_financial_report_main_menu" name="Financial Reports"
+              parent="snooker_main_menu"/>
+
+    <menuitem id="snooker_financial_report_menu"
+              name="Monthly Reports"
+              parent="snooker_financial_report_main_menu"
+              action="snooker_financial_report_action"/>
+</odoo>
+
+<!--<odoo>-->
+<!--    <record id="view_snooker_financial_report_tree" model="ir.ui.view">-->
+<!--        <field name="name">snooker.financial.report.tree</field>-->
+<!--        <field name="model">snooker.financial.report</field>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <tree create="false" edit="false" delete="false">-->
+<!--                <field name="name"/>-->
+<!--                <field name="total_collected"/>-->
+<!--                <field name="total_expenses"/>-->
+<!--                <field name="salary_expense"/>-->
+<!--                <field name="rent_expense"/>-->
+<!--                <field name="electricity_expense"/>-->
+<!--                <field name="maintenance_expense"/>-->
+<!--                <field name="equipment_expense"/>-->
+<!--                <field name="net_balance"/>-->
+<!--            </tree>-->
+<!--        </field>-->
+<!--    </record>-->
+
+<!--    <record id="view_snooker_financial_report_form" model="ir.ui.view">-->
+<!--        <field name="name">snooker.financial.report.form</field>-->
+<!--        <field name="model">snooker.financial.report</field>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <form string="Financial Report">-->
+<!--                <sheet>-->
+<!--                    <group>-->
+<!--                        <field name="name"/>-->
+<!--                    </group>-->
+<!--                    <group>-->
+<!--                        <field name="total_collected"/>-->
+<!--                        <field name="total_expenses"/>-->
+<!--                        <field name="net_balance"/>-->
+<!--                    </group>-->
+<!--                    <group string="Expense Breakdown">-->
+<!--                        <field name="salary_expense"/>-->
+<!--                        <field name="rent_expense"/>-->
+<!--                        <field name="electricity_expense"/>-->
+<!--                        <field name="maintenance_expense"/>-->
+<!--                        <field name="equipment_expense"/>-->
+<!--                    </group>-->
+<!--                </sheet>-->
+<!--            </form>-->
+<!--        </field>-->
+<!--    </record>-->
+
+<!--    <record id="view_snooker_financial_report_tree" model="ir.ui.view">-->
+<!--        <field name="name">snooker.financial.report.tree</field>-->
+<!--        <field name="model">snooker.financial.report</field>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <tree>-->
+<!--                <field name="name"/>-->
+<!--                <field name="report_date"/>-->
+<!--                <field name="total_revenue"/>-->
+<!--                <field name="total_expenses"/>-->
+<!--                <field name="net_balance"/>-->
+<!--            </tree>-->
+<!--        </field>-->
+<!--    </record>-->
+
+<!--    <record id="snooker_financial_report_action" model="ir.actions.act_window">-->
+<!--        <field name="name">Financial Reports</field>-->
+<!--        <field name="res_model">snooker.financial.report</field>-->
+<!--        <field name="view_mode">tree,form</field>-->
+<!--    </record>-->
+
+<!--    <menuitem id="snooker_financial_report_main_menu" name="Financial Reports" parent="snooker_main_menu"/>-->
+<!--    <menuitem id="snooker_financial_report_menu" name="Monthly Reports" parent="snooker_financial_report_main_menu"-->
+<!--              action="snooker_financial_report_action"/>-->
+
+<!--    <record id="snooker_financial_report_wizard_action" model="ir.actions.act_window">-->
+<!--        <field name="name">Generate Report</field>-->
+<!--        <field name="res_model">snooker.financial.report.wizard</field>-->
+<!--        <field name="view_mode">form</field>-->
+<!--        <field name="target">new</field>-->
+<!--    </record>-->
+
+<!--    <menuitem id="snooker_financial_report_wizard_menu" name="Generate Report"-->
+<!--              parent="snooker_financial_report_main_menu" action="snooker_financial_report_wizard_action"/>-->
+<!--</odoo>-->
