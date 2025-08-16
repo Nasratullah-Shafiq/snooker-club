@@ -1,0 +1,150 @@
+<odoo>
+    <record id="view_snooker_reservation_form" model="ir.ui.view">
+        <field name="name">snooker.reservation.form</field>
+        <field name="model">snooker.reservation</field>
+        <field name="arch" type="xml">
+            <form string="Table Reservation">
+                <header>
+                    <button name="action_confirm" string="Confirm" type="object" class="oe_highlight"/>
+                    <button name="action_start" string="Start" type="object" invisible="reservation_type != 'hourly'"/>
+                    <button name="action_complete" string="Complete" type="object"
+                            invisible="reservation_type != 'hourly'"/>
+                    <button name="action_cancel" string="Cancel" type="object"/>
+
+                    <button name="action_open_payment_wizard" string="Register Payment" type="object"
+                            class="oe_highlight"/>
+                    <button name="action_add_game" string="Game ++" type="object" class="oe_highlight" invisible="reservation_type != 'game'"/>
+                    <button name="action_remove_game" string="Game --" type="object" class="oe_highlight" invisible="show_remove_game is in '0'"/>
+
+                    <field name="status" widget="statusbar"
+                           statusbar_visible="draft,confirmed,in_progress,completed,cancelled"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="customer_id"/>
+                            <field name="table_id"/>
+                            <field name="reservation_type"/>
+
+                            <field name="start_time" invisible="reservation_type != 'hourly'"/>
+                            <field name="end_time" invisible="reservation_type != 'hourly'"/>
+                            <field name="amount_paid"/>
+                        </group>
+                        <group>
+                            <field name="duration" readonly="1" invisible="reservation_type != 'hourly'"/>
+                            <field name="peak_hours" readonly="1"/>
+                            <field name="number_of_games" invisible="reservation_type != 'game'"/>
+                            <field name="game_rate" invisible="1"/>
+                            <field name="show_remove_game" invisible="0"/>
+                            <field name="total_cost"/>
+                            <field name="remaining_balance" readonly="1"/>
+                            <field name="is_fully_paid" readonly="1"/>
+                            <field name="is_future_booking" readonly="1"/>
+                        </group>
+                    </group>
+
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_ids" widget="mail_thread"/>
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_snooker_reservation_tree" model="ir.ui.view">
+        <field name="name">snooker.reservation.tree</field>
+        <field name="model">snooker.reservation</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="customer_id"/>
+                <field name="table_id"/>
+                <field name="start_time"/>
+                <field name="end_time"/>
+                <field name="total_cost"/>
+                <field name="status"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="snooker_reservation_future_action" model="ir.actions.act_window">
+        <field name="name">Future Reservations</field>
+        <field name="res_model">snooker.reservation</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[("status", "=", "future_booking")]</field>
+    </record>
+
+    <menuitem id="snooker_future_reservations_menu" name="Future Reservations" parent="snooker_reservation_menu"
+              action="snooker_reservation_future_action"/>
+</odoo>
+
+        <!--<odoo>-->
+        <!--    <record id="view_snooker_reservation_form" model="ir.ui.view">-->
+        <!--        <field name="name">snooker.reservation.form</field>-->
+        <!--        <field name="model">snooker.reservation</field>-->
+        <!--        <field name="arch" type="xml">-->
+        <!--            <form string="Table Reservation">-->
+        <!--                <header>-->
+        <!--                    <button name="action_confirm" string="Confirm" type="object" class="oe_highlight"/>-->
+        <!--                    <button name="action_start" string="Start" type="object"/>-->
+        <!--                    <button name="action_complete" string="Complete" type="object"/>-->
+        <!--                    <button name="action_cancel" string="Cancel" type="object"/>-->
+        <!--                    <button name="action_open_payment_wizard" string="Register Payment" type="object"-->
+        <!--                            class="oe_highlight"/>-->
+        <!--                    <field name="status" widget="statusbar"-->
+        <!--                           statusbar_visible="draft,confirmed,in_progress,completed,cancelled"/>-->
+        <!--                </header>-->
+        <!--                <sheet>-->
+        <!--                    <group>-->
+        <!--                        <group>-->
+        <!--                            <field name="customer_id"/>-->
+        <!--                            <field name="table_id"/>-->
+        <!--                            <field name="reservation_type"/>-->
+
+        <!--                            <field name="start_time"/>-->
+        <!--                            <field name="end_time"/>-->
+        <!--                            <field name="amount_paid"/>-->
+        <!--                        </group>-->
+        <!--                        <group>-->
+        <!--                            <field name="duration" readonly="1"/>-->
+        <!--                            <field name="peak_hours" readonly="1"/>-->
+        <!--                            <field name="total_cost" />-->
+        <!--                            <field name="remaining_balance" readonly="1"/>-->
+        <!--                            <field name="is_fully_paid" readonly="1"/>-->
+        <!--                            <field name="is_future_booking" readonly="1"/>-->
+        <!--                        </group>-->
+        <!--                    </group>-->
+
+        <!--                </sheet>-->
+        <!--                 <div class="oe_chatter">-->
+        <!--                <field name="message_ids" widget="mail_thread"/>-->
+        <!--            </div>-->
+        <!--            </form>-->
+        <!--        </field>-->
+        <!--    </record>-->
+
+        <!--    <record id="view_snooker_reservation_tree" model="ir.ui.view">-->
+        <!--        <field name="name">snooker.reservation.tree</field>-->
+        <!--        <field name="model">snooker.reservation</field>-->
+        <!--        <field name="arch" type="xml">-->
+        <!--            <tree>-->
+        <!--                <field name="customer_id"/>-->
+        <!--                <field name="table_id"/>-->
+        <!--                <field name="start_time"/>-->
+        <!--                <field name="end_time"/>-->
+        <!--                <field name="total_cost"/>-->
+        <!--                <field name="status"/>-->
+        <!--            </tree>-->
+        <!--        </field>-->
+        <!--    </record>-->
+
+        <!--    <record id="snooker_reservation_future_action" model="ir.actions.act_window">-->
+        <!--        <field name="name">Future Reservations</field>-->
+        <!--        <field name="res_model">snooker.reservation</field>-->
+        <!--        <field name="view_mode">tree,form</field>-->
+        <!--        <field name="domain">[('status', '=', 'future_booking')]</field>-->
+        <!--    </record>-->
+
+        <!--    <menuitem id="snooker_future_reservations_menu" name="Future Reservations" parent="snooker_reservation_menu"-->
+        <!--              action="snooker_reservation_future_action"/>-->
+        <!--</odoo>-->
