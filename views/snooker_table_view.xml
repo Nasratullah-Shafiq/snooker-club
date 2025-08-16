@@ -1,0 +1,40 @@
+<odoo>
+    <record id="view_snooker_table_form" model="ir.ui.view">
+        <field name="name">snooker.table.form</field>
+        <field name="model">snooker.table</field>
+        <field name="arch" type="xml">
+            <form string="Snooker Table">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="table_type"/>
+                        </group>
+                        <group>
+                            <field name="hourly_rate"/>
+                            <field name="game_rate"/>
+                            <field name="status" readonly="1"/>
+                        </group>
+                    </group>
+                </sheet>
+                 <div class="oe_chatter">
+                <field name="message_ids" widget="mail_thread"/>
+            </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_snooker_table_tree" model="ir.ui.view">
+        <field name="name">snooker.table.tree</field>
+        <field name="model">snooker.table</field>
+        <field name="arch" type="xml">
+            <tree string="Snooker Tables">
+                <field name="name"/>
+                <field name="table_type"/>
+                <field name="hourly_rate"/>
+                <field name="game_rate"/>
+                <field name="status"/>
+            </tree>
+        </field>
+    </record>
+</odoo>
