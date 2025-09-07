@@ -27,3 +27,4 @@ class SnookerPaymentWizard(models.TransientModel):
         # self.reservation_id.message_post(body=f"Payment of {self.amount} recorded.")
         # return {'type': 'ir.actions.act_window_close'}
     
+
