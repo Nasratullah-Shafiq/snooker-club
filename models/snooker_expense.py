@@ -17,7 +17,6 @@ class SnookerExpense(models.Model):
     _description = "Snooker Club Expenses"
     _inherit = ["mail.thread", "mail.activity.mixin"]  # Add inheritance
 
-
     name = fields.Char("Expense Name", required=True)
     category = fields.Selection([
         ("rent", "Rent"),
