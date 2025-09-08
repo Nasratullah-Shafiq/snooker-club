@@ -12,6 +12,7 @@ from odoo import models, fields, api
 from datetime import datetime
 
 
+
 class SnookerExpense(models.Model):
     _name = "snooker.expense"
     _description = "Snooker Club Expenses"
