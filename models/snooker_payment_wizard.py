@@ -6,6 +6,7 @@ LastEditTime: 2025-02-18 21:57:07
 FilePath: customization/snooker_reservation/models/snooker_payment_wizard.py
 Description: 这是默认设置,可以在设置》工具》File Description中进行配置
 """
+
 from odoo import models, fields, api
 
 class SnookerPaymentWizard(models.TransientModel):
