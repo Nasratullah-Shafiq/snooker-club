@@ -24,6 +24,7 @@ class SnookerRevenue(models.Model):
         for record in self:
             record.available_balance = record.total_income - record.total_expenses
 
+
     @api.depends("total_income")
     def _compute_total_expenses(self):
         """Calculate total expenses deducted from revenue"""
