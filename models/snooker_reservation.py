@@ -22,6 +22,7 @@ class SnookerTable(models.Model):
     hourly_rate = fields.Float("Hourly Rate", required=True)
 
     game_rate = fields.Float( store=True)
+    
     status = fields.Selection([("available", "Available"), ("occupied", "Occupied")], default="available")
 
     def action_add_game(self):
