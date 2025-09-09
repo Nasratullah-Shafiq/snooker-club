@@ -9,6 +9,7 @@
         <field name="perm_unlink" eval="False"/>
         <field name="domain_force">[('reservation_id.customer_id', '=', user.partner_id.id)]</field>
     </record>
+    
 
     <record id="snooker_payment_wizard_access" model="ir.model.access">
         <field name="name">snooker.payment.wizard access</field>
