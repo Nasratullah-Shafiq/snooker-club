@@ -36,6 +36,7 @@ class SnookerTable(models.Model):
 
 
 
+
 class SnookerReservation(models.Model):
     _name = "snooker.reservation"
     _description = "Table Reservation"
