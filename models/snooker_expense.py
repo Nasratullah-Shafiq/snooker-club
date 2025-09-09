@@ -7,7 +7,6 @@ FilePath: customization/snooker_reservation/models/snooker_expense.py
 Description: 这是默认设置,可以在设置》工具》File Description中进行配置
 """
 
-
 from odoo import models, fields, api
 from datetime import datetime
 
