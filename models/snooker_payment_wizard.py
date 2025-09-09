@@ -16,6 +16,7 @@ class SnookerPaymentWizard(models.TransientModel):
 
     _rec_name = "reservation_id"
 
+
     reservation_id = fields.Many2one("snooker.reservation", string="Reservation", required=True)
     amount = fields.Float("Payment Amount", required=True)
 
