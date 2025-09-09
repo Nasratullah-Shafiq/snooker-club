@@ -33,3 +33,4 @@ class SnookerRevenue(models.Model):
                 ("snooker_revenue_id", "=", record.id),
                 ("payment_source", "=", "snooker_fees"),
             ]).mapped("paid_amount"))
+            
